@@ -10,8 +10,8 @@
 
 var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("tasks_todo");//ul of #incompleteTasks
-var completedTasksHolder=document.getElementById("tasks_done");//completed-tasks
+var incompleteTaskHolder=document.querySelector(".task-list_todo");//ul of #incompleteTasks
+var completedTasksHolder=document.querySelector(".task-list_done");//completed-tasks
 
 
 //New task list item
@@ -32,24 +32,24 @@ var createNewTaskElement=function(taskString){
     var deleteButton=document.createElement("button");//delete button
     var deleteButtonImg=document.createElement("img");//delete button image
     
-    listItem.className = "task";
+    listItem.className = "task-item";
 
     label.innerText=taskString;
-    label.className='task__name';
+    label.className='task-item__name';
 
     //Each elements, needs appending
     checkBox.type="checkbox";
-    checkBox.className = "input_checkbox input";
+    checkBox.className = "task-item__input task-item__input_checkbox input_no-outline";
     editInput.type="text";
-    editInput.className="task__input input_text input";
+    editInput.className="task-item__input task-item__input_text input_text input_no-outline";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="btn btn_edit";
+    editButton.className="task-item__btn btn btn_edit btn_no-outline";
 
-    deleteButton.className="btn btn_delete";
+    deleteButton.className="task-item__btn btn btn_delete btn_no-outline";
     deleteButtonImg.src='./remove.svg';
     deleteButtonImg.alt = "delete";
-    deleteButtonImg.className = "img";
+    deleteButtonImg.className = "task-item__img btn__img_delete img";
     deleteButton.appendChild(deleteButtonImg);
 
 
